@@ -19,6 +19,8 @@ type TextfileContent54Object struct {
 	ID       string     `xml:"id,attr"`
 	Version  int        `xml:"version,attr"`
 	Filepath string     `xml:"filepath"`
+	Path     string     `xml:"path"`
+	Filename string     `xml:"filename"`
 	Pattern  string     `xml:"pattern"`
 	Instance TCInstance `xml:"instance"`
 }
