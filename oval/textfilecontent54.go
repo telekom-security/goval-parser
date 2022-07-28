@@ -30,3 +30,17 @@ type TCInstance struct {
 	Instance string   `xml:",chardata"`
 	Kind     string   `xml:"datatype,attr"`
 }
+
+// TextfileContent54State : >states>textfilecontent54_state
+type TextfileContent54State struct {
+	XMLName       xml.Name      `xml:"textfilecontent54_state"`
+	ID            string        `xml:"id,attr"`
+	Version       int           `xml:"version,attr"`
+	Subexpression Subexpression `xml:"subexpression"`
+}
+
+type Subexpression struct {
+	XMLName       xml.Name `xml:"subexpression"`
+	Operation     string   `xml:"operation,attr"`
+	SubExpression string   `xml:",chardata"`
+}
