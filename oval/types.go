@@ -222,6 +222,7 @@ type Debian struct {
 	XMLName  xml.Name `xml:"debian"`
 	MoreInfo string   `xml:"moreinfo"`
 	Date     Date     `xml:"date"`
+	Dsa      string   `xml:"dsa"`
 }
 
 // Tests : >tests

@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/quay/goval-parser/oval"
+	"github.com/JHeinzde/goval-parser/oval"
 )
 
 func main() {
