@@ -37,10 +37,16 @@ type TextfileContent54State struct {
 	ID            string        `xml:"id,attr"`
 	Version       int           `xml:"version,attr"`
 	Subexpression Subexpression `xml:"subexpression"`
+	Text          Text          `xml:"text"`
 }
 
 type Subexpression struct {
 	XMLName       xml.Name `xml:"subexpression"`
 	Operation     string   `xml:"operation,attr"`
 	SubExpression string   `xml:",chardata"`
+}
+
+type Text struct {
+	Operation string `xml:"operation,attr"`
+	Pattern   string `xml:",chardata"`
 }
