@@ -35,6 +35,14 @@ func (s *States) init() {
 
 	go func() {
 		defer wg.Done()
+		s.rpmverifyFileMemo = make(map[string]int, len(s.RPMVerifyFileState))
+		for i, v := range s.RPMVerifyFileState {
+			s.rpmverifyFileMemo[v.ID] = i
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
 		s.dpkginfoMemo = make(map[string]int, len(s.DpkgInfoStates))
 		for i, v := range s.DpkgInfoStates {
 			s.dpkginfoMemo[v.ID] = i
@@ -71,6 +79,9 @@ func (s *States) Lookup(ref string) (kind string, index int, err error) {
 	}
 	if i, ok := s.textfileContent54Memo[ref]; ok {
 		return s.TextfileContent54States[i].XMLName.Local, i, nil
+	}
+	if i, ok := s.rpmverifyFileMemo[ref]; ok {
+		return s.RPMVerifyFileState[i].XMLName.Local, i, nil
 	}
 
 	// We didn't find it, maybe we can say why.

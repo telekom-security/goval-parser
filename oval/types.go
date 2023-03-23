@@ -288,9 +288,11 @@ type States struct {
 	RPMInfoStates           []RPMInfoState           `xml:"rpminfo_state"`
 	DpkgInfoStates          []DpkgInfoState          `xml:"dpkginfo_state"`
 	TextfileContent54States []TextfileContent54State `xml:"textfilecontent54_state"`
+	RPMVerifyFileState      []RPMVerifyFileState     `xml:"rpmverifyfile_state"`
 	lineMemo                map[string]int
 	version55Memo           map[string]int
 	rpminfoMemo             map[string]int
+	rpmverifyFileMemo       map[string]int
 	dpkginfoMemo            map[string]int
 	textfileContent54Memo   map[string]int
 }
