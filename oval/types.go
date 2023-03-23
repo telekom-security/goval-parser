@@ -246,14 +246,16 @@ type Tests struct {
 }
 
 // ObjectRef : >tests>line_test>object-object_ref
-//           : >tests>version55_test>object-object_ref
+//
+//	: >tests>version55_test>object-object_ref
 type ObjectRef struct {
 	XMLName   xml.Name `xml:"object"`
 	ObjectRef string   `xml:"object_ref,attr"`
 }
 
 // StateRef : >tests>line_test>state-state_ref
-//          : >tests>version55_test>state-state_ref
+//
+//	: >tests>version55_test>state-state_ref
 type StateRef struct {
 	XMLName  xml.Name `xml:"state"`
 	StateRef string   `xml:"state_ref,attr"`
@@ -348,6 +350,12 @@ type Version struct {
 // EVR
 type EVR struct {
 	XMLName   xml.Name  `xml:"evr"`
+	Operation Operation `xml:"operation,attr"`
+	Body      string    `xml:",chardata"`
+}
+
+type Name struct {
+	XMLName   xml.Name  `xml:"name"`
 	Operation Operation `xml:"operation,attr"`
 	Body      string    `xml:",chardata"`
 }

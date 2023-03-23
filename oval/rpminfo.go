@@ -81,6 +81,20 @@ type RPMInfoState struct {
 	SignatureKeyID *RPMSignatureKeyID `xml:"signature_keyid"`
 }
 
+// RPMVerifyFileState: >states>rpmverifyfile_state
+type RPMVerifyFileState struct {
+	XMLName        xml.Name           `xml:"rpmverifyfile_state"`
+	ID             string             `xml:"id,attr"`
+	Version        int                `xml:"version,attr"`
+	Name           *Name              `xml:"name"`
+	Arch           *Arch              `xml:"arch"`
+	Epoch          *Epoch             `xml:"epoch"`
+	Release        *Release           `xml:"release"`
+	RPMVersion     *Version           `xml:"version"`
+	EVR            *EVR               `xml:"evr"`
+	SignatureKeyID *RPMSignatureKeyID `xml:"signature_keyid"`
+}
+
 type RPMSignatureKeyID struct {
 	XMLName   xml.Name  `xml:"signature_keyid"`
 	Operation Operation `xml:"operation,attr"`
