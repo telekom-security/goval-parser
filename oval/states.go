@@ -7,7 +7,7 @@ import (
 
 func (s *States) init() {
 	var wg sync.WaitGroup
-	wg.Add(5)
+	wg.Add(6)
 
 	go func() {
 		defer wg.Done()
