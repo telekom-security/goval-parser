@@ -57,10 +57,17 @@ type Definition struct {
 
 // Criteria : >definitions>definition>criteria
 type Criteria struct {
-	XMLName    xml.Name    `xml:"criteria"`
-	Operator   string      `xml:"operator,attr"`
-	Criterias  []Criteria  `xml:"criteria"`
-	Criterions []Criterion `xml:"criterion"`
+	XMLName          xml.Name    `xml:"criteria"`
+	Operator         string      `xml:"operator,attr"`
+	Criterias        []Criteria  `xml:"criteria"`
+	Criterions       []Criterion `xml:"criterion"`
+	ExtendDefinition Extension   `xml:"extend_definition"`
+}
+
+type Extension struct {
+	RefID              string `xml:"definition_ref,attr"`
+	Comment            string `xml:"comment,attr"`
+	ApplicabilityCheck bool   `xml:"applicability_check,attr"`
 }
 
 // Criterion : >definitions>definition>criteria>*>criterion
