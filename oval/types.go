@@ -39,6 +39,8 @@ type Generator struct {
 type Definitions struct {
 	XMLName     xml.Name     `xml:"definitions"`
 	Definitions []Definition `xml:"definition"`
+	lookupTable map[string]int
+	once        sync.Once
 }
 
 // Definition : >definitions>definition
