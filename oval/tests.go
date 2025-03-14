@@ -8,7 +8,7 @@ import (
 // Init sets up the memoization maps.
 func (t *Tests) init() {
 	var wg sync.WaitGroup
-	wg.Add(7)
+	wg.Add(8)
 
 	go func() {
 		defer wg.Done()
@@ -66,6 +66,14 @@ func (t *Tests) init() {
 		}
 	}()
 
+	go func() {
+		defer wg.Done()
+		t.variableTestMemo = make(map[string]int, len(t.VariableTests))
+		for i, v := range t.VariableTests {
+			t.variableTestMemo[v.ID] = i
+		}
+	}()
+
 	wg.Wait()
 }
 
@@ -94,6 +102,9 @@ func (t *Tests) Lookup(ref string) (kind string, index int, err error) {
 		return t.UnameTests[i].XMLName.Local, i, nil
 	}
 	if i, ok := t.textfilecontent54Memo[ref]; ok {
+		return t.TextfileContent54Tests[i].XMLName.Local, i, nil
+	}
+	if i, ok := t.variableTestMemo[ref]; ok {
 		return t.TextfileContent54Tests[i].XMLName.Local, i, nil
 	}
 
