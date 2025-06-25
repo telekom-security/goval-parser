@@ -211,10 +211,13 @@ type Cve struct {
 	CveID   string   `xml:",chardata"`
 	Cvss2   string   `xml:"cvss2,attr"`
 	Cvss3   string   `xml:"cvss3,attr"`
-	Cwe     string   `xml:"cwe,attr"`
-	Impact  string   `xml:"impact,attr"`
-	Href    string   `xml:"href,attr"`
-	Public  string   `xml:"public,attr"`
+	// both values below are ubuntu specific
+	CvssScore  string `xml:"cvss_score,attr"`
+	CvssVector string `xml:"cvss_vector,attr"`
+	Cwe        string `xml:"cwe,attr"`
+	Impact     string `xml:"impact,attr"`
+	Href       string `xml:"href,attr"`
+	Public     string `xml:"public,attr"`
 }
 
 // Bugzilla : >definitions>definition>metadata>advisory>bugzilla
