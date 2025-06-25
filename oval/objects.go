@@ -7,7 +7,7 @@ import (
 
 func (o *Objects) init() {
 	var wg sync.WaitGroup
-	wg.Add(6)
+	wg.Add(7)
 
 	go func() {
 		defer wg.Done()
@@ -57,6 +57,14 @@ func (o *Objects) init() {
 		}
 	}()
 
+	go func() {
+		defer wg.Done()
+		o.variableObjectMemo = make(map[string]int, len(o.VariableObjects))
+		for i, v := range o.VariableObjects {
+			o.variableObjectMemo[v.ID] = i
+		}
+	}()
+
 	wg.Wait()
 }
 
@@ -81,6 +89,9 @@ func (o *Objects) Lookup(ref string) (kind string, index int, err error) {
 	}
 	if i, ok := o.rpmverifyfileMemo[ref]; ok {
 		return o.RPMVerifyFileObjects[i].XMLName.Local, i, nil
+	}
+	if i, ok := o.variableObjectMemo[ref]; ok {
+		return o.VariableObjects[i].XMLName.Local, i, nil
 	}
 
 	// We didn't find it, maybe we can say why.

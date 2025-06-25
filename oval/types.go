@@ -245,6 +245,7 @@ type Tests struct {
 	RPMVerifyFileTests     []RPMVerifyFileTest     `xml:"rpmverifyfile_test"`
 	UnameTests             []UnameTest             `xml:"uname_test"`
 	TextfileContent54Tests []TextfileContent54Test `xml:"textfilecontent54_test"`
+	VariableTests          []VariableTest          `xml:"variable_test"`
 	lineMemo               map[string]int
 	version55Memo          map[string]int
 	rpminfoMemo            map[string]int
@@ -252,6 +253,7 @@ type Tests struct {
 	rpmverifyfileMemo      map[string]int
 	unameMemo              map[string]int
 	textfilecontent54Memo  map[string]int
+	variableTestMemo       map[string]int
 }
 
 // ObjectRef : >tests>line_test>object-object_ref
@@ -280,12 +282,14 @@ type Objects struct {
 	RPMInfoObjects           []RPMInfoObject           `xml:"rpminfo_object"`
 	RPMVerifyFileObjects     []RPMVerifyFileObject     `xml:"rpmverifyfile_object"`
 	DpkgInfoObjects          []DpkgInfoObject          `xml:"dpkginfo_object"`
+	VariableObjects          []VariableObject          `xml:"variable_object"`
 	lineMemo                 map[string]int
 	version55Memo            map[string]int
 	textfilecontent54Memo    map[string]int
 	rpminfoMemo              map[string]int
 	rpmverifyfileMemo        map[string]int
 	dpkginfoMemo             map[string]int
+	variableObjectMemo       map[string]int
 }
 
 // States : >states
@@ -298,6 +302,7 @@ type States struct {
 	DpkgInfoStates          []DpkgInfoState          `xml:"dpkginfo_state"`
 	TextfileContent54States []TextfileContent54State `xml:"textfilecontent54_state"`
 	RPMVerifyFileState      []RPMVerifyFileState     `xml:"rpmverifyfile_state"`
+	VariableStates          []VariableState          `xml:"variable_state"`
 	lineMemo                map[string]int
 	version55Memo           map[string]int
 	rpminfoMemo             map[string]int
