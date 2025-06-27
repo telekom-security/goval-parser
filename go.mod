@@ -1,4 +1,4 @@
-module github.com/JHeinzde/goval-parser
+module github.com/telekom-security/goval-parser
 
 go 1.13
 
