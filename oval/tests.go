@@ -105,7 +105,7 @@ func (t *Tests) Lookup(ref string) (kind string, index int, err error) {
 		return t.TextfileContent54Tests[i].XMLName.Local, i, nil
 	}
 	if i, ok := t.variableTestMemo[ref]; ok {
-		return t.TextfileContent54Tests[i].XMLName.Local, i, nil
+		return t.VariableTests[i].XMLName.Local, i, nil
 	}
 
 	// We didn't find it, maybe we can say why.
